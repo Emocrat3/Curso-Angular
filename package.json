@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Api RESTful ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Emocrat3/Curso-React-Vue-js-Angular.git"
+  },
+  "author": "Arthuro Gomez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Emocrat3/Curso-React-Vue-js-Angular/issues"
+  },
+  "homepage": "https://github.com/Emocrat3/Curso-React-Vue-js-Angular#readme"
+}
