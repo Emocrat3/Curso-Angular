@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { routing, appRoutingProviders } from './app.routing';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MomentModule } from 'angular2-moment';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -16,6 +17,8 @@ import { PaginaComponent } from './components/pagina/pagina.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { ErrorComponent } from './components/error/error.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
+import { ArticlesComponent } from './components/articles/articles.component';
+import { ArticleComponent } from './components/article/article.component';
 
 @NgModule({
   declarations: [
@@ -30,13 +33,16 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
     PaginaComponent,
     PeliculasComponent,
     ErrorComponent,
-    PeliculaComponent
+    PeliculaComponent,
+    ArticlesComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule, 
+    MomentModule
   ],
   providers: [appRoutingProviders],
   bootstrap: [AppComponent]

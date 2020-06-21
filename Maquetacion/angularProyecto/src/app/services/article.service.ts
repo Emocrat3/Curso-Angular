@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Article } from '../models/article';
 import { Global } from './global';
 
+
 @Injectable()
 
 export class ArticleService {
@@ -16,7 +17,18 @@ export class ArticleService {
         this.url = Global.url;
     }
 
-    getArticles():Observable<any> {
-        return this._http.get(this.url+'articles');
+    getArticles(last:any = null):Observable<any> {
+
+        var articles = 'articles';
+
+        if(last != null){
+            var articles = 'articles/true';
+        }
+
+        return this._http.get(this.url+articles);
+    }
+    
+    getArticle(articleId): Observable<any>{
+        return this._http.get(this.url+'article/'+articleId);
     }
 }
