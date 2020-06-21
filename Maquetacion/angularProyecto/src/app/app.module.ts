@@ -20,6 +20,7 @@ import { PeliculaComponent } from './components/pelicula/pelicula.component';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleComponent } from './components/article/article.component';
 import { SearchComponent } from './components/search/search.component';
+import { ArticleNewComponent } from './components/article-new/article-new.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { SearchComponent } from './components/search/search.component';
     PeliculaComponent,
     ArticlesComponent,
     ArticleComponent,
-    SearchComponent
+    SearchComponent,
+    ArticleNewComponent
   ],
   imports: [
     BrowserModule,
