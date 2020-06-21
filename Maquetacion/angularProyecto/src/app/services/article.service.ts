@@ -22,7 +22,7 @@ export class ArticleService {
         var articles = 'articles';
 
         if(last != null){
-            var articles = 'articles/true';
+            articles = 'articles/true';
         }
 
         return this._http.get(this.url+articles);

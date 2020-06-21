@@ -29,7 +29,6 @@ export class ArticleComponent implements OnInit {
 
       this._articleService.getArticle(id).subscribe(
         response => {
-          console.log(response);
           if(response.article){
             this.article = response.article;
           } else {
