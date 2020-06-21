@@ -8,6 +8,8 @@ import { Pelicula } from '../../models/pelicula';
 })
 export class PeliculasComponent implements OnInit {
 public peliculas: Pelicula[];
+public favorita: Pelicula;
+
   constructor() { 
     this.peliculas = [
       new Pelicula("Camino ninja", 2015, "http://4.bp.blogspot.com/-v9T9Py3Sezo/UBIi7mwOYWI/AAAAAAAAGuA/aAanCiV6fFk/s1600/Naruto+the+Movie+6+Road+to+Ninja.jpg" ),
@@ -20,4 +22,7 @@ public peliculas: Pelicula[];
     console.log(this.peliculas);
   }
 
+  mostrarFavorita(event){
+    this.favorita = event.pelicula;
+  }
 }
