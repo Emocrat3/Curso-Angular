@@ -13,6 +13,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { SearchComponent } from './components/search/search.component';
 import { ErrorComponent } from './components/error/error.component';
 import { ArticleNewComponent } from './components/article-new/article-new.component';
+import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 
 
 // Array de rutas 
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     {path: 'pagina-de-pruebas', component: PaginaComponent},
     {path: 'pagina-de-pruebas/:nombre', component: PaginaComponent},
     {path: 'blog/crear', component: ArticleNewComponent},
+    {path: 'blog/editar/:id', component: ArticleEditComponent},
     {path: '**', component: ErrorComponent}
 
 ];

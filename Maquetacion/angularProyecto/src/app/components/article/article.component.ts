@@ -40,7 +40,7 @@ export class ArticleComponent implements OnInit {
           this._router.navigate(['/home']);
         }
       );
-    })
+    });
     
   }
 
