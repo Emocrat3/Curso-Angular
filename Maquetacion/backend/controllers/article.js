@@ -53,7 +53,7 @@ var controller = {
        article.title = params.title;
        article.content = params.content;
 
-       if(article.image){
+       if(params.image){
         article.image = params.image;
        } else {
         article.image = null;
@@ -275,7 +275,7 @@ upload: (req,res) => {
 
           if(articleId){
        // Buscar el articulo, asignarle el nombre de la imagen y actualizarlo
-       Article.findOneAndUpdate({_id: articleId }, {image: fileName}, {new:true}, (err, articleUpdated) => {
+       Article.findOneAndUpdate({_id: articleId}, {image: fileName}, {new:true}, (err, articleUpdated) => {
         if(err || !articleUpdated){
             return res.status(200).send({
                     status: 'error',
@@ -290,7 +290,7 @@ upload: (req,res) => {
         } else {
             return res.status(200).send({
                 status: 'success',
-                image: file_name
+                image: fileName
             });
         }
 

@@ -74,8 +74,7 @@ export class ArticleEditComponent implements OnInit {
   }
 
   imageUpload(data){
-    let image_data = JSON.parse(data.response);
-    this.article.image = image_data.image;
+    this.article.image = data.body.image;
   }
 
   getArticle(){

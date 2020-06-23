@@ -56,10 +56,14 @@ export class ArticleNewComponent implements OnInit {
   onSubmit() {
     this._articleServide.create(this.article).subscribe(
       (response) => {
+        
         if (response.status == 'success') {
           this.status = 'success';
           this.article = response.article;
-          this._router.navigate(['/blog']);
+          //this._router.navigate(['/blog']);
+
+          console.log(response.article);
+          console.log(this.article);
         } else {
           this.status = 'error';
         }
@@ -71,9 +75,9 @@ export class ArticleNewComponent implements OnInit {
     );
   }
 
-  imageUpload(data){
-    let image_data = JSON.parse(data.response);
-    this.article.image = image_data.image;
+  imageUpload(data){ 
+    this.article.image = data.body.image;
+    console.log(data.body.image);
   }
   
 }
