@@ -232,70 +232,49 @@ delete: (req, res) => {
 
 upload: (req,res) => {
     // Configurar el modulo del connect multiparty router/article.js
+    if(req.file){
 
-    // Recoger el fichero de la peticion
-    var fileName = 'Imagen no subida...';
-
-    if(!req.files){
-        return res.status(404).send({
-            status: 'error',
-            message: fileName
-        });
-    }
-    // Conseguir el nombre y la extension del archivo
-    var filePath = req.files.file0.path;
-    var fileSplit = filePath.split('\\');
-
-    // Advertencia en linux o mac
-    //var fileSplit = filePath.split('/');
-
-    // Sacar nombre del archivo
-
-    var fileName = fileSplit[2];
-
-    // Sacar extension del fichero
-
-    var extensionSplit = fileName.split('\.');
-    var fileExt = extensionSplit[1];
-
-    // Comprobar la extension, solo imagenes, si no es valido, borrar el fichero
-    if(!fileExt != 'png' && !fileExt != 'jpg' && !fileExt != 'jpeg' && !fileExt != 'gif'){
-        //Borrar el archivo subido
-
-        fs.unlink(filePath, (err) => {
-            return res.status(200).send({
-            status: 'error',
-            message: 'La extension de la imagen no es valida'
-            });
-        });
-
-    }else{
-          // Si todo es valido, sacamos la id de la url
-          var articleId = req.params.id;
-
-          if(articleId){
-       // Buscar el articulo, asignarle el nombre de la imagen y actualizarlo
-       Article.findOneAndUpdate({_id: articleId}, {image: fileName}, {new:true}, (err, articleUpdated) => {
-        if(err || !articleUpdated){
-            return res.status(200).send({
-                    status: 'error',
-                    message: 'Error al guardar la imagen del articulo'
-                });
-        }    
-            return res.status(200).send({
-                status: 'success',
-                article: articleUpdated
-            });
-        });
-        } else {
-            return res.status(200).send({
-                status: 'success',
-                image: fileName
-            });
+        // console.log(req.file);
+    
+        var file_path = req.file.path;
+    
+        var file_split = file_path.split('\\');
+    
+        var file_name = file_split[2];
+    
+        var ext_split = req.file.originalname.split('\.');
+    
+        var file_ext = ext_split[1]
+    
+        if(file_ext== 'png' || file_ext== 'gif' || file_ext== 'jpg'){
+    
+          Album.findByIdAndUpdate(albumId, {image:file_name}, (err, albumUpdated) => {
+    
+            if(!albumUpdated){
+    
+              res.status(404).send({message: 'No se ha podido actualizar el album'});
+    
+            }else{
+    
+              res.status(200).send({album: albumUpdated});
+    
+            }
+    
+          })
+    
+        }else{
+    
+          res.status(200).send({message: 'Extension del archivo no valida'});
+    
         }
-
-    }
-
+    
+        console.log(file_path);
+    
+      }else{
+    
+        res.status(200).send({message: 'No has subido ninguna imagen..'});
+    
+      }
   
 }, // End upload file
 

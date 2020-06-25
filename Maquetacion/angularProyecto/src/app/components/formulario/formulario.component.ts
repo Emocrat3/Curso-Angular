@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-formulario',
@@ -22,7 +23,11 @@ export class FormularioComponent implements OnInit {
   }
 
   onSubmit(){
-    alert("Formulario enviado!!!");
+    swal(
+      'Envio exitoso!!',
+      'El formulario se ha enviado correctamente',
+      'success'
+    );
     console.log(this.user);
   }
 

@@ -28,6 +28,7 @@ export class SearchComponent implements OnInit {
         response => {
           if(response.articles){
             this.articles = response.articles;
+            console.log(this.articles);
           }
         },
         error => {

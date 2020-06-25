@@ -27,7 +27,7 @@ const appRoutes: Routes = [
     {path: 'formulario', component: FormularioComponent},
     {path: 'peliculas', component: PeliculasComponent},
     {path: 'pagina-de-pruebas', component: PaginaComponent},
-    {path: 'pagina-de-pruebas/:nombre', component: PaginaComponent},
+    {path: 'pagina-de-pruebas/:nombre/:apellidos', component: PaginaComponent},
     {path: 'blog/crear', component: ArticleNewComponent},
     {path: 'blog/editar/:id', component: ArticleEditComponent},
     {path: '**', component: ErrorComponent}
