@@ -1,23 +1,25 @@
-<app-slider [name]="'Pagina'"></app-slider>
+<app-slider [name]="'Herramientas'"></app-slider>
 
 <div class="center">
     <section id="content">
 
-        <h1 class="subheader">Pagina de pruebas</h1>
+        <h1 class="subheader">Herramientas</h1>
         <div *ngIf="nombre && apellidos; then siHayParametros else noHayParametros"></div>
 
 
         <ng-template #siHayParametros>
-            <h2>El nombre es: {{nombre}}</h2>
-            <h2>El apellido es: {{apellidos}}</h2>
+            <h2>Hola {{nombre}} {{apellidos}}, espero te haya gustado mi proyecto.  </h2>
+            <img src="assets/images/slider.png">
         </ng-template>
 
 
         <ng-template #noHayParametros>
-            <h2>No hay parametros por la URL, para verlo ingresa: http://localhost:4200/pagina-de-pruebas/tuNombreAca/tuApellidoAca</h2>
+            <h2>No hay parametros por la URL, como ejemplo da <a href="http://localhost:4200/pagina-de-pruebas/Usuario/Visitante" target="_blank" style="text-decoration: none; color: red;">click aca</a></h2>
+            <img src="assets/images/slider.png">
         </ng-template>
 
-        <button (click)="redireccion()">Llevame al formulario</button>
+        <a [routerLink]="['/home']" class="btn btn-success">Llevame al inicio</a>
+        
 
     </section>
 

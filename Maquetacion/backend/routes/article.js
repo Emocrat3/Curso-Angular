@@ -1,5 +1,4 @@
 'use strict'
-const md_auth = require('md_auth_path');
 var express = require('express');
 var ArticleController = require('../controllers/article');
 
@@ -49,7 +48,7 @@ router.get('/articles/:last?', ArticleController.getArticles);
 router.get('/article/:id', ArticleController.getArticle);
 router.put('/article/:id', ArticleController.update);
 router.delete('/article/:id', ArticleController.delete);
-router.post('/upload-image-album/:id', [md_auth.ensureAuth, mul_upload.single('image')], AlbumController.uploadImage);
+router.post('/upload-image-album/:id', [mul_upload.single('image')], ArticleController.getImage);
 router.get('/get-image/:image', ArticleController.getImage);
 router.get('/search/:search', ArticleController.search);
 module.exports = router;
