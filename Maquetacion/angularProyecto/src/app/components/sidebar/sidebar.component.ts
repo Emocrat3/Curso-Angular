@@ -10,11 +10,15 @@ import { Router, ActivatedRoute, Params} from '@angular/router';
 export class SidebarComponent implements OnInit {
 
   public searchString: string;
-
+  public contador: string;
+  
   constructor(
     private _route: ActivatedRoute,
     private _router: Router
-  ) { }
+  ) { 
+    this.contador = 'Usuarios que han visitado la web';
+
+  }
 
   ngOnInit(): void {
   }

@@ -8,13 +8,13 @@
 
 
         <ng-template #siHayParametros>
-            <h2>Hola {{nombre}} {{apellidos}}, espero te haya gustado mi proyecto.  </h2>
+            <h2>Hola {{nombre}} {{apellidos}}, espero te haya gustado mi proyecto.</h2>
             <img src="assets/images/slider.png">
         </ng-template>
 
 
         <ng-template #noHayParametros>
-            <h2>No hay parametros por la URL, como ejemplo da <a href="http://localhost:4200/pagina-de-pruebas/Usuario/Visitante" target="_blank" style="text-decoration: none; color: red;">click aca</a></h2>
+            <h2>No hay parametros por la URL, como ejemplo da <a (click)="redireccion()"  style="text-decoration: none; color: red;">click aca</a></h2>
             <img src="assets/images/slider.png">
         </ng-template>
 

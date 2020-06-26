@@ -11,6 +11,7 @@ import { Article } from 'src/app/models/article';
 export class HomeComponent implements OnInit {
 
   public title: string;
+  public contador:string;
   public articles: Article[];
 
   constructor(
