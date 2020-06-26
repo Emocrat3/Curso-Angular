@@ -248,7 +248,7 @@ upload: (req,res) => {
     
         if(file_ext== 'png' || file_ext== 'gif' || file_ext== 'jpg'){
     
-          Album.findByIdAndUpdate(albumId, {image:file_name}, (err, albumUpdated) => {
+          Article.findByIdAndUpdate(albumId, {image:file_name}, (err, albumUpdated) => {
     
             if(!albumUpdated){
     
