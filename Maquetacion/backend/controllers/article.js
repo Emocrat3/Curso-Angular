@@ -4,7 +4,7 @@ var fs = require('fs');
 var path = require('path');
 
 var Article = require('../models/article');
-const { exists } = require('../models/article');
+
 
 var controller = {
 
@@ -39,6 +39,7 @@ var controller = {
 
        }catch(err){
             return res.status(200).send({
+                status: 'error',
                 message: 'Faltan datos por enviar!!!'
             });
        }
@@ -231,68 +232,77 @@ delete: (req, res) => {
 },
 
 upload: (req,res) => {
-    // Configurar el modulo del connect multiparty router/article.js
-    if(req.file){
 
-        // console.log(req.file);
+    var file_name = 'Imagen no subida';
     
-        var file_path = req.file.path;
+    if(!req.files){
+        return res.status(404).send({
+            status: 'error',
+            message: file_name
+        });
+    }
+
+    var file_path = req.files.file0.path;
+    var file_split = file_path.split('\\');
+
+    var file_name = file_split[2];
+
+    var extension_split = file_name.split('\.');
+    var file_ext = extension_split[1];
+
+    if(file_ext != 'png' && file_ext != 'jpeg' && file_ext != 'jpg' && file_ext != 'gif'){
+        
+        fs.unlink(file_path, (err)=> {
+            return res.status(200).send({
+                status: 'error',
+                message: 'La extension no es valida'
+           });
+        });
+    } else {
+        var articleId = req.params.id;
+
+        if(articleId){
+            Article.findOneAndUpdate({_id: articleId }, {image: file_name}, {new:true}, (err, articleUpdated)=> {
+
+                if(err || !articleUpdated){
+                    return res.status(200).send({
+                        status: 'error',
+                        message: 'Error al guardar la imagen de articulo!!'
+                   });
+                }
     
-        var file_split = file_path.split('\\');
     
-        var file_name = file_split[2];
-    
-        var ext_split = req.file.originalname.split('\.');
-    
-        var file_ext = ext_split[1]
-    
-        if(file_ext== 'png' || file_ext== 'gif' || file_ext== 'jpg'){
-    
-          Article.findByIdAndUpdate(albumId, {image:file_name}, (err, albumUpdated) => {
-    
-            if(!albumUpdated){
-    
-              res.status(404).send({message: 'No se ha podido actualizar el album'});
-    
-            }else{
-    
-              res.status(200).send({album: albumUpdated});
-    
-            }
-    
-          })
+                return res.status(200).send({
+                    status: 'success',
+                    article: articleUpdated
+               });
+            });
     
         }else{
-    
-          res.status(200).send({message: 'Extension del archivo no valida'});
-    
+            return res.status(200).send({
+                status: 'success',
+                image: file_name
+           }); 
         }
-    
-        console.log(file_path);
-    
-      }else{
-    
-        res.status(200).send({message: 'No has subido ninguna imagen..'});
-    
-      }
-  
-}, // End upload file
+    }
+},
 
-    getImage: (req, res) => {
 
-        var file = req.params.image;
-        var pathFile = './upload/articles/'+file;
+    getImage: (req, res) =>{
+            var file = req.params.image;
+            var path_file = './upload/articles/'+file;
 
-        fs.exists(pathFile, (exists) => {
-            if(exists){
-                return res.sendFile(path.resolve(pathFile));
-            }else{
-                return res.status(200).send({
-                    status: 'error',
-                    message: 'Error al guardar la imagen del articulo'
-                });  
-            }
-        });
+            fs.exists(path_file, (exists) => {
+                console.log(exists);
+                if(exists){
+                    return res.sendFile(path.resolve(path_file));
+                }else{
+                    return res.status(404).send({
+                        status: 'error',
+                        message: 'La imagen no existe'
+                    });
+                }
+            });
 
     },
 

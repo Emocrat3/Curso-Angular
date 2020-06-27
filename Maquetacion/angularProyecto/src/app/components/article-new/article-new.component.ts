@@ -19,7 +19,7 @@ export class ArticleNewComponent implements OnInit {
 
   afuConfig = {
     multiple: false,
-    formatsAllowed: ".jpg,.png, .gif, .jpeg",
+    formatsAllowed: ".jpg, .png, .gif, .jpeg",
     maxSize: "50",
     uploadAPI:  {
       url: Global.url+'upload-image'
@@ -85,7 +85,6 @@ export class ArticleNewComponent implements OnInit {
 
   imageUpload(data){ 
     this.article.image = data.body.image;
-    console.log(data.body.image);
   }
   
 }
