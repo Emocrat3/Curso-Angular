@@ -1,1 +1,0 @@
-web: node Maquetacion/backend/index.js
