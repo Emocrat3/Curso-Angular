@@ -293,7 +293,7 @@ upload: (req,res) => {
             var path_file = './upload/articles/'+file;
 
             fs.exists(path_file, (exists) => {
-                console.log(exists);
+                
                 if(exists){
                     return res.sendFile(path.resolve(path_file));
                 }else{
