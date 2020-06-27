@@ -7,7 +7,7 @@ var port = process.env.port || 3900;
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
 
-mongoose.connect('mongodb://localhost:27017/api_rest_blog', { useNewUrlParser: true})
+mongoose.connect('mongodb://heroku_263185wz:heroku_263185wz@ds155903.mlab.com:55903/heroku_263185wz', { useNewUrlParser: true})
         .then(()=> {
                 console.log('La conexion a mongodb se realizo correctamente!');
 
