@@ -4,6 +4,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var path = require('path');
 
 // Ejecutar express (http)
 
@@ -28,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', function(req, res){
-    return res.render(article_routes);
+    res.sendFile(path.join(__dirname, 'angularProyecto/src/app/components/home/home.component.html'));
 });
 
 // Añadir prefijos a rutas / Cargar rutas
