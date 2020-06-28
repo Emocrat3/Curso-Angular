@@ -27,10 +27,11 @@ app.use((req, res, next) => {
     next();
 });
 
-// Set Application Static Layout
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + '/angularProyecto/dist/index.html')); // Set index.html as layout
+app.get('/', function(req, res){
+    return res.send('Hola Arthuro');
+
 });
+
 // Añadir prefijos a rutas / Cargar rutas
 
 app.use('/api', article_routes);
