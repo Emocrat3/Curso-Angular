@@ -30,7 +30,7 @@ app.use((req, res, next) => {
 
 // Añadir prefijos a rutas / Cargar rutas
 
-app.use('/', require(article_routes));
+app.use('/api', article_routes);
 
 
 
