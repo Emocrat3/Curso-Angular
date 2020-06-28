@@ -12,7 +12,7 @@ router.get('/test-de-controlador', ArticleController.test);
 router.post('/datos-curso', ArticleController.datosCurso);
 
 // Rutas utiles
-app.get('/', (request, response) => {
+router.get('/', (request, response) => {
     return response.send('Ping!');
     });
 router.post('/save', ArticleController.save);
