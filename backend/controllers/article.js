@@ -307,9 +307,7 @@ upload: (req,res) => {
             { "title": {"$regex": searchString, "$options": "i"}},
             { "content": {"$regex": searchString, "$options": "i"}}
 
-        ]})
-        .sort([['date', 'descending']])
-        .exec((err, articles) => {
+        ]}).sort([['date', 'descending']]).exec((err, articles) => {
             if(err){
                 return res.status(500).send({
                     status: 'error',

@@ -13,12 +13,12 @@ router.post('/datos-curso', ArticleController.datosCurso);
 
 // Rutas utiles
 
-router.post('/save', ArticleController.save);
-router.get('/articles/:last?', ArticleController.getArticles);
-router.get('/article/:id', ArticleController.getArticle);
-router.put('/article/:id', ArticleController.update);
-router.delete('/article/:id', ArticleController.delete);
-router.post('/upload-image/:id?', md_upload , ArticleController.upload);
-router.get('/get-image/:image', ArticleController.getImage);
-router.get('/search/:search', ArticleController.search);
+router.post('/',require('/save'), ArticleController.save);
+router.get('/',require('/articles/:last?'), ArticleController.getArticles);
+router.get('/',require('/article/:id'), ArticleController.getArticle);
+router.put('/',require('/article/:id'), ArticleController.update);
+router.delete('/',require('/article/:id'), ArticleController.delete);
+router.post('/',require('/upload-image/:id?'), md_upload , ArticleController.upload);
+router.get('/',require('/get-image/:image'), ArticleController.getImage);
+router.get('/',require('/search/:search'), ArticleController.search);
 module.exports = router;
