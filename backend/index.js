@@ -1,7 +1,7 @@
 'use strict'
 
 var mongoose = require('mongoose');
-var app = require('./app');
+var app = require('./app.js');
 var port = process.env.PORT || 3900;
 
 mongoose.set('useFindAndModify', false);
