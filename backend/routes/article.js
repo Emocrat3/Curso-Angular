@@ -8,7 +8,7 @@ var multipart = require('connect-multiparty');
 var md_upload = multipart({uploadDir: './upload/articles'});
 // Rutas de prueba
 
-router.get('/', ArticleController.test);
+router.get('/test-de-controlador', ArticleController.test);
 router.post('/datos-curso', ArticleController.datosCurso);
 
 // Rutas utiles

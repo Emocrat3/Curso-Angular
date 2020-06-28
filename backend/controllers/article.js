@@ -20,8 +20,11 @@ var controller = {
    },
 
    test: (req, res) => {
-    return response.send('Ping!');
+       return res.status(200).send({
+           message: 'Soy la accion test de mi controlador de articulos'
+       });
    },
+
 
 
    save: (req,res) => {
