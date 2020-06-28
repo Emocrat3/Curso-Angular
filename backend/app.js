@@ -27,22 +27,10 @@ app.use((req, res, next) => {
     next();
 });
 
-var multipart = require('connect-multiparty');
-var md_upload = multipart({uploadDir: './upload/articles'});
-var ArticleController = require('controllers/article');
-
 app.get('/', function(req, res){
     return res.send('Hola Arthuro');
 
 });
-app.post('/save', ArticleController.save);
-app.get('/articles/:last?', ArticleController.getArticles);
-app.get('/article/:id', ArticleController.getArticle);
-app.put('/article/:id', ArticleController.update);
-app.delete('/article/:id', ArticleController.delete);
-app.post('/upload-image/:id?', md_upload , ArticleController.upload);
-app.get('/get-image/:image', ArticleController.getImage);
-app.get('/search/:search', ArticleController.search);
 
 // Añadir prefijos a rutas / Cargar rutas
 
