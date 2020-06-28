@@ -27,6 +27,10 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', function(req, res){
+    return res.send('Hola Arthuro');
+
+});
 
 // Añadir prefijos a rutas / Cargar rutas
 
