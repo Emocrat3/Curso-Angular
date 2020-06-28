@@ -7,7 +7,7 @@ var port = process.env.port || 3900;
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
 
-mongoose.connect('process.env.MONGODB_URI', { useNewUrlParser: true})
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true})
         .then(()=> {
                 console.log('La conexion a mongodb se realizo correctamente!');
 
