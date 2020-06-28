@@ -4,7 +4,7 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-const path = require('path');
+
 // Ejecutar express (http)
 
 var app = express();
@@ -27,8 +27,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(express.static(__dirname + '/angularProyecto/dist/angularProyecto'));
-app.get('/*', (req, res) => res.sendFile(path.join(__dirname)));
+app.get('/', function(req, res){
+    return res.send('Hola Arthuro');
+});
 
 // Añadir prefijos a rutas / Cargar rutas
 
