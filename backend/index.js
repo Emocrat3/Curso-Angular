@@ -12,8 +12,8 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true})
                 console.log('La conexion a mongodb se realizo correctamente!');
 
                 //Crear servidor y ponerme a escuchar peticiones HTTP
+});
 
-        app.listen(port, () => {
-                console.log('Servidor corriendo en http://localhost:'+port);
-        });
+app.listen(port, () => {
+        console.log('Servidor corriendo en http://localhost:'+port);
 });
