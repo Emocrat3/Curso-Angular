@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/', function(req, res){
-    res.sendFile(path.join(__dirname, 'angularProyecto/src/app/components/home/home.component.html'));
+    return res.send('Hola Arthuro');
 });
 
 // Añadir prefijos a rutas / Cargar rutas
