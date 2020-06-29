@@ -10,7 +10,7 @@ var port = process.env.PORT || 3900;
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/api_rest_blog', { useNewUrlParser: true})
+mongoose.connect('mongodb://arthuroali:Ali140116@ds113522.mlab.com:13522/heroku_dr1mdqnp', { useNewUrlParser: true})
         .then(()=> {
                 console.log('La conexion a mongodb se realizo correctamente!');
 
