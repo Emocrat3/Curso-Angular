@@ -5,11 +5,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var router = express.Router();
-var ArticleController = require('./controllers/article');
-
-var multipart = require('connect-multiparty');
-var md_upload = multipart({uploadDir: './upload/articles'});
+var path = require('path');
 // Ejecutar express (http)
 
 
@@ -31,28 +27,18 @@ app.use((req, res, next) => {
     next();
 });
 
-var path = require('path');
-app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
 
 
 // Añadir prefijos a rutas / Cargar rutas
 
 app.use('/api', require('./routes/article'));
 
-router.post('/save', ArticleController.save);
-router.get('/articles/:last?', ArticleController.getArticles);
-router.get('/article/:id', ArticleController.getArticle);
-router.put('/article/:id', ArticleController.update);
-router.delete('/article/:id', ArticleController.delete);
-router.post('/upload-image/:id?', md_upload , ArticleController.upload);
-router.get('/get-image/:image', ArticleController.getImage);
-router.get('/search/:search', ArticleController.search);
+app.use(express.static(path.join(__dirname, 'public')));
 
-module.exports = router;
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 // Exportar modulo (fichero  actual)
 module.exports = app;
