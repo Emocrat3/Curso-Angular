@@ -4,13 +4,17 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
+var router = require('./routes/article');
+var ArticleController = require('./controllers/article');
+var router = express.Router();
 
+var multipart = require('connect-multiparty');
+var md_upload = multipart({uploadDir: './upload/articles'});
 // Ejecutar express (http)
 
 var app = express();
 
 // Cargar ficheros rutas
-var article_routes = require('./routes/article');
 
 
 // Middlewares
@@ -27,15 +31,20 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', function(req, res){
-    return res.send('Hola Arthuro');
-});
 // Añadir prefijos a rutas / Cargar rutas
+router.get('/', (req, res)=> res.send('Hello world'));
+app.use('/api', require('./routes/article'));
 
-app.use('/api', article_routes);
+router.post('/save', ArticleController.save);
+router.get('/articles/:last?', ArticleController.getArticles);
+router.get('/article/:id', ArticleController.getArticle);
+router.put('/article/:id', ArticleController.update);
+router.delete('/article/:id', ArticleController.delete);
+router.post('/upload-image/:id?', md_upload , ArticleController.upload);
+router.get('/get-image/:image', ArticleController.getImage);
+router.get('/search/:search', ArticleController.search);
 
-
+module.exports = router;
 
 // Exportar modulo (fichero  actual)
 module.exports = app;
-
