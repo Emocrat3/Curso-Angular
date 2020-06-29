@@ -1,7 +1,7 @@
 'use strict'
 var express = require('express');
 var mongoose = require('mongoose');
-var app = require('./app');
+var appy = require('./app');
 var port = process.env.PORT || 3900;
 var app = express();
 
@@ -16,7 +16,7 @@ mongoose.connect('mongodb://arthuroali:Ali140116@ds113522.mlab.com:13522/heroku_
 
                 //Crear servidor y ponerme a escuchar peticiones HTTP
 
-        app.listen(port, () => {
+        appy.listen(port, () => {
                 console.log('Servidor corriendo en http://localhost:'+port);
         });
 });
