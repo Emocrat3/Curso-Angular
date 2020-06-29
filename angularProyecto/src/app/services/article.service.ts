@@ -25,22 +25,22 @@ export class ArticleService {
             articles = 'articles/true';
         }
 
-        return this._http.get('api/'+articles);
+        return this._http.get(articles);
     }
     
     getArticle(articleId): Observable<any>{
-        return this._http.get('api/'+'article/'+articleId);
+        return this._http.get('article/'+articleId);
     }
 
     search(searchString): Observable<any>{
-        return this._http.get('api/'+'search/'+searchString);
+        return this._http.get('search/'+searchString);
     }
 
     create(article): Observable<any>{
         let params = JSON.stringify(article);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.post('api/'+'save', params, {headers: headers});
+        return this._http.post('save', params, {headers: headers});
     }
 
 
@@ -48,12 +48,12 @@ export class ArticleService {
         let params = JSON.stringify(article);
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.put('api/'+'article/'+id, params, {headers:headers});
+        return this._http.put('article/'+id, params, {headers:headers});
     }
 
     delete(id):Observable<any>{
         let headers = new HttpHeaders().set('Content-Type', 'application/json');
 
-        return this._http.delete('api/'+'article/'+id, {headers:headers});
+        return this._http.delete('article/'+id, {headers:headers});
     }
 }
