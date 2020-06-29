@@ -1,9 +1,7 @@
-'use strict'
+
 
 // Cargar modulos de node para crear servidor
 
-var express = require('express');
-var app = express();
 
 
 // Ejecutar express (http)
@@ -15,8 +13,7 @@ var app = express();
 
 // Middlewares
 
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+
 
 // CORS
 
@@ -30,4 +27,3 @@ app.use(bodyParser.json());
 
 
 // Exportar modulo (fichero  actual)
-module.exports = app;
