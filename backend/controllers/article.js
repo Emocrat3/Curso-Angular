@@ -337,6 +337,12 @@ upload: (req,res) => {
             status: 'success',
             articles
         });
+    },
+
+    probar: (req, res) => {
+        return res.status(200).send({
+            message: 'Hola arthurooo'
+        });
     }
 
 }; // End controller 

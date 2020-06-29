@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angularProyecto",
+            "outputPath": "../backend/public",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -124,6 +124,6 @@
   },
   "defaultProject": "angularProyecto",
   "cli": {
-    "analytics": "2ade9b6e-2940-471d-874b-bc927b4e1e68"
+    "analytics": false
   }
 }

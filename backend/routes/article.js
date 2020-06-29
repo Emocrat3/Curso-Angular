@@ -12,7 +12,7 @@ router.get('/test-de-controlador', ArticleController.test);
 router.post('/datos-curso', ArticleController.datosCurso);
 
 // Rutas utiles
-router.get('/', (req, res)=> res.send('Hello world'));
+router.get('/', ArticleController.probar);
 router.post('/save', ArticleController.save);
 router.get('/articles/:last?', ArticleController.getArticles);
 router.get('/article/:id', ArticleController.getArticle);
