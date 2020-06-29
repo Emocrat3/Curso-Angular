@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 });
 
 // Añadir prefijos a rutas / Cargar rutas
-router.get('/', (req, res)=> res.send('Hello world'));
+
 app.use('/api', require('./routes/article'));
 
 router.post('/save', ArticleController.save);
