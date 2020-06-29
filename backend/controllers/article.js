@@ -25,8 +25,6 @@ var controller = {
        });
    },
 
-
-
    save: (req,res) => {
        // Recoger parametro por post
         var params = req.body;
@@ -122,31 +120,40 @@ var controller = {
     });
 },
 
-    getArticle: (req, res) => {
-        var articleId = req.params.id;
+getArticle: (req, res) => {
+    //Recoger el id de la URL
+    var articleId= req.params.id;
 
-        if(!articleId || articleId == null){
+    //Comprobar que existe
+    if(!articleId || articleId == null){
+        return res.status(404).send({
+            status: 'error',
+            message: 'No existe el articulo!!!'
+        });
+    }
+
+    // Buscar el articulo
+    Article.findById(articleId, (err,article)=>{
+        if(err){
+            return res.status(500).send({
+                status: 'error',
+                message: 'Error al devolver los datos!!'
+            });
+        }
+
+        if(!article){
             return res.status(404).send({
                 status: 'error',
                 message: 'No existe el articulo!!!'
             });
         }
-
-        Article.findById(articleId, (err, article) => {
-
-            if(err || !article){
-                return res.status(404).send({
-                    status: 'error',
-                    message: 'No existe el articulo!!!'
-                });  
-            }
-
-            return res.status(404).send({
+            // Devorverlo en JSON
+            return res.status(200).send({
                 status: 'success',
                 article
             });
         });
-}, 
+    }, 
 
     update: (req,res) => {
         //Recoger el ID del articulo por la URL
@@ -309,7 +316,9 @@ upload: (req,res) => {
             { "title": {"$regex": searchString, "$options": "i"}},
             { "content": {"$regex": searchString, "$options": "i"}}
 
-        ]}).sort([['date', 'descending']]).exec((err, articles) => {
+        ]})
+        .sort([['date', 'descending']])
+        .exec((err, articles) => {
             if(err){
                 return res.status(500).send({
                     status: 'error',
@@ -322,12 +331,12 @@ upload: (req,res) => {
                     message: 'No hay articulos que coincidan con tu busqueda'
                 });
             }
-            return res.status(200).send({
-                status: 'success',
-                articles
-            });
-        });
 
+        });
+        return res.status(200).send({
+            status: 'success',
+            articles
+        });
     }
 
 }; // End controller 

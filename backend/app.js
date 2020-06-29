@@ -4,7 +4,6 @@
 
 var express = require('express');
 var bodyParser = require('body-parser');
-var path = require('path');
 
 // Ejecutar express (http)
 
@@ -31,7 +30,6 @@ app.use((req, res, next) => {
 app.get('/', function(req, res){
     return res.send('Hola Arthuro');
 });
-
 // Añadir prefijos a rutas / Cargar rutas
 
 app.use('/api', article_routes);

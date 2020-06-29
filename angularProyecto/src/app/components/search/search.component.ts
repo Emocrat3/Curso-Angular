@@ -35,7 +35,7 @@ export class SearchComponent implements OnInit {
           console.log(error);
           this.articles = [];
         }
-      );
+      )
 
     });
   }

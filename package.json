@@ -15,9 +15,5 @@
   "bugs": {
     "url": "https://github.com/Emocrat3/Curso-React-Vue-js-Angular/issues"
   },
-  "homepage": "https://github.com/Emocrat3/Curso-React-Vue-js-Angular#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "path": "^0.12.7"
-  }
+  "homepage": "https://github.com/Emocrat3/Curso-React-Vue-js-Angular#readme"
 }

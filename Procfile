@@ -1,1 +1,1 @@
-web: node angularProyecto/server.js
+web: node backend/index.js
