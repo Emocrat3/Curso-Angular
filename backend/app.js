@@ -2,13 +2,12 @@
 
 // Cargar modulos de node para crear servidor
 
-
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
 var router = require('./routes/article');
 var ArticleController = require('./controllers/article');
 var router = express.Router();
-var express = require('express');
-var app = express();
 var multipart = require('connect-multiparty');
 var md_upload = multipart({uploadDir: './upload/articles'});
 // Ejecutar express (http)
