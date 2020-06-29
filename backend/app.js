@@ -5,6 +5,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var router = express.Router();
 var router = require('./routes/article');
 var ArticleController = require('./controllers/article');
 
