@@ -12,7 +12,8 @@ var router = require('./routes/article');
 var md_upload = multipart({uploadDir: './upload/articles'});
 var cors = require('cors');
 app.use(cors());
-    
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
