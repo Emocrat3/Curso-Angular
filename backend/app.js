@@ -7,8 +7,8 @@ var bodyParser = require('body-parser');
 var router = require('./routes/article');
 var ArticleController = require('./controllers/article');
 var router = express.Router();
-
-
+var express = require('express');
+var app = express();
 var multipart = require('connect-multiparty');
 var md_upload = multipart({uploadDir: './upload/articles'});
 // Ejecutar express (http)
@@ -32,6 +32,12 @@ app.use((req, res, next) => {
     next();
 });
 
+var path = require('path');
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 
 // Añadir prefijos a rutas / Cargar rutas
