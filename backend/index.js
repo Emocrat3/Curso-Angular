@@ -1,5 +1,5 @@
 'use strict'
-
+var express = require('express');
 var mongoose = require('mongoose');
 var app = require('./app');
 var port = process.env.PORT || 3900;
@@ -20,7 +20,7 @@ mongoose.connect('mongodb://arthuroali:Ali140116@ds113522.mlab.com:13522/heroku_
                 console.log('Servidor corriendo en http://localhost:'+port);
         });
 });
-
+var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res)=>{
