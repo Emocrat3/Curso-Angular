@@ -2,7 +2,7 @@
 
 // Cargar modulos de node para crear servidor
 
-var express = require('express');
+
 var bodyParser = require('body-parser');
 var router = require('./routes/article');
 var ArticleController = require('./controllers/article');
@@ -13,7 +13,7 @@ var multipart = require('connect-multiparty');
 var md_upload = multipart({uploadDir: './upload/articles'});
 // Ejecutar express (http)
 
-var app = express();
+
 
 // Cargar ficheros rutas
 

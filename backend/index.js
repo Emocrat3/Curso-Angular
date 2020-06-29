@@ -20,9 +20,12 @@ mongoose.connect('mongodb://arthuroali:Ali140116@ds113522.mlab.com:13522/heroku_
                 console.log('Servidor corriendo en http://localhost:'+port);
         });
 });
+
+
 var path = require('path');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'public/index.html'));
-})
+});
+
