@@ -34,7 +34,7 @@
                     <img src="assets/images/default.jpg" alt="{{article.title}}" *ngIf="!article.image" />
                     
                 </div>
-                <input name="image" type="file" />
+                <input name="image" type="file" (ApiResponse)="imageUpload($event)" />
 
             </div>
 

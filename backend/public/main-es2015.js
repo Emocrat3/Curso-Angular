@@ -688,7 +688,7 @@ class ArticleEditComponent {
     }
 }
 ArticleEditComponent.ɵfac = function ArticleEditComponent_Factory(t) { return new (t || ArticleEditComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"])); };
-ArticleEditComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ArticleEditComponent, selectors: [["app-article-edit"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]])], decls: 24, vars: 7, consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]], template: function ArticleEditComponent_Template(rf, ctx) { if (rf & 1) {
+ArticleEditComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ArticleEditComponent, selectors: [["app-article-edit"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]])], decls: 24, vars: 7, consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file", 3, "ApiResponse"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]], template: function ArticleEditComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h2", 2);
@@ -716,7 +716,9 @@ ArticleEditComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdef
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ArticleEditComponent_div_19_Template, 3, 2, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ApiResponse", function ArticleEditComponent_Template_input_ApiResponse_20_listener($event) { return ctx.imageUpload($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "div", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "input", 16);
@@ -873,9 +875,12 @@ class ArticleNewComponent {
             this.status = 'error';
         });
     }
+    imageUpload(data) {
+        this.article.image = data.body.image;
+    }
 }
 ArticleNewComponent.ɵfac = function ArticleNewComponent_Factory(t) { return new (t || ArticleNewComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["ActivatedRoute"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"])); };
-ArticleNewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ArticleNewComponent, selectors: [["app-article-new"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]])], decls: 24, vars: 7, consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]], template: function ArticleNewComponent_Template(rf, ctx) { if (rf & 1) {
+ArticleNewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ArticleNewComponent, selectors: [["app-article-new"]], features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]])], decls: 24, vars: 7, consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file", 3, "ApiResponse"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]], template: function ArticleNewComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](1, "section", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](2, "h2", 2);
@@ -903,7 +908,9 @@ ArticleNewComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefi
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](18, "div", 5);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ArticleNewComponent_div_19_Template, 3, 2, "div", 13);
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 14);
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ApiResponse", function ArticleNewComponent_Template_input_ApiResponse_20_listener($event) { return ctx.imageUpload($event); });
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](21, "div", 15);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](22, "input", 16);

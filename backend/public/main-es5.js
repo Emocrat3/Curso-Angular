@@ -1028,7 +1028,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]])],
       decls: 24,
       vars: 7,
-      consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]],
+      consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file", 3, "ApiResponse"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]],
       template: function ArticleEditComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -1091,7 +1091,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ArticleEditComponent_div_19_Template, 3, 2, "div", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "input", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ApiResponse", function ArticleEditComponent_Template_input_ApiResponse_20_listener($event) {
+            return ctx.imageUpload($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
@@ -1379,6 +1385,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             _this3.status = 'error';
           });
         }
+      }, {
+        key: "imageUpload",
+        value: function imageUpload(data) {
+          this.article.image = data.body.image;
+        }
       }]);
 
       return ArticleNewComponent;
@@ -1394,7 +1405,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       features: [_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵProvidersFeature"]([src_app_services_article_service__WEBPACK_IMPORTED_MODULE_2__["ArticleService"]])],
       decls: 24,
       vars: 7,
-      consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]],
+      consts: [[1, "center"], ["id", "content"], [1, "subheader"], ["enctype", "multipart/form-data", 1, "mid-form", 3, "ngSubmit"], ["articleForm", "ngForm"], [1, "form-group"], ["for", "title"], ["type", "text", "name", "title", "required", "", 3, "ngModel", "ngModelChange"], ["title", "ngModel"], [4, "ngIf"], ["for", "content"], ["name", "content", "required", "", 3, "ngModel", "ngModelChange"], ["content", "ngModel"], ["class", "image-thumb", 4, "ngIf"], ["name", "image", "type", "file", 3, "ApiResponse"], [1, "clearfix"], ["type", "submit", "value", "Guardar", 1, "btn", "btn-success", 3, "disabled"], [1, "image-thumb"], [3, "src", "alt", 4, "ngIf"], ["src", "assets/images/default.jpg", 3, "alt", 4, "ngIf"], [3, "src", "alt"], ["src", "assets/images/default.jpg", 3, "alt"]],
       template: function ArticleNewComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
@@ -1457,7 +1468,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtemplate"](19, ArticleNewComponent_div_19_Template, 3, 2, "div", 13);
 
-          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](20, "input", 14);
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](20, "input", 14);
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵlistener"]("ApiResponse", function ArticleNewComponent_Template_input_ApiResponse_20_listener($event) {
+            return ctx.imageUpload($event);
+          });
+
+          _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
 
