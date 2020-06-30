@@ -35,6 +35,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/api');
 
+app.get('*', (req, res)=>{
+        res.sendFile(path.join(__dirname, 'public/index.html'));
+    });
+    
 app.get('/', ArticleController.probar);
 app.post('/save', ArticleController.save);
 app.get('/articles/:last?', ArticleController.getArticles);
@@ -45,9 +49,6 @@ app.post('/upload-image/:id?', md_upload , ArticleController.upload);
 app.get('/get-image/:image', ArticleController.getImage);
 app.get('/search/:search', ArticleController.search);
 
-app.get('*', (req, res)=>{
-        res.sendFile(path.join(__dirname, 'public/index.html'));
-    });
 
 
 
