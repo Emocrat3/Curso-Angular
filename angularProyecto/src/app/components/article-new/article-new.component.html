@@ -6,7 +6,7 @@
 
         
 
-        <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()">
+        <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="title">Titulo</label>
                 <input type="text" name="title" #title="ngModel" [(ngModel)]="article.title" required/>
@@ -34,10 +34,8 @@
                     <img src="assets/images/default.jpg" alt="{{article.title}}" *ngIf="!article.image" />
                     
                 </div>
-                <angular-file-uploader
-                    [config]="afuConfig"
-                    (ApiResponse)="imageUpload($event)">
-                </angular-file-uploader>
+                <input name="image" type="file" />
+
             </div>
 
             <div class="clearfix"></div>

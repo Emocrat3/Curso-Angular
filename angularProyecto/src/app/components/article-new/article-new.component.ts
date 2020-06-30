@@ -83,8 +83,6 @@ export class ArticleNewComponent implements OnInit {
     );
   }
 
-  imageUpload(data){ 
-    this.article.image = data.body.image;
-  }
+
   
 }
