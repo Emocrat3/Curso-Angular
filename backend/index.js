@@ -7,10 +7,12 @@ var bodyParser = require('body-parser');
 var app = express();
 var path = require('path');
 var router = require('./routes/article');
+var ArticleController = require('../controllers/article');
 
 var cors = require('cors');
 app.use(cors());
-
+var multipart = require('connect-multiparty');
+var md_upload = multipart({uploadDir: './upload/articles'});
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
@@ -31,8 +33,17 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', router);
+app.use('/api');
 
+app.get('/', ArticleController.probar);
+app.post('/save', ArticleController.save);
+app.get('/articles/:last?', ArticleController.getArticles);
+app.get('/article/:id', ArticleController.getArticle);
+app.put('/article/:id', ArticleController.update);
+app.delete('/article/:id', ArticleController.delete);
+app.post('/upload-image/:id?', md_upload , ArticleController.upload);
+app.get('/get-image/:image', ArticleController.getImage);
+app.get('/search/:search', ArticleController.search);
 
 app.get('*', (req, res)=>{
         res.sendFile(path.join(__dirname, 'public/index.html'));
