@@ -331,12 +331,14 @@ upload: (req,res) => {
                     message: 'No hay articulos que coincidan con tu busqueda'
                 });
             }
+            
+            return res.status(200).send({
+                status: 'success',
+                articles
+            });
 
         });
-        return res.status(200).send({
-            status: 'success',
-            articles
-        });
+
     },
 
     probar: (req, res) => {
