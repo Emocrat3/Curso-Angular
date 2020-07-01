@@ -2360,7 +2360,7 @@ ArticleService.ɵprov = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineIn
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Global", function() { return Global; });
 var Global = {
-    url: 'https://arthuro-gomez-web-app.herokuapp.com/',
+    url: 'https://arthuro-gomez-web-app.herokuapp.com/api/',
     urlSegunda: '/pagina-de-pruebas/Usuario/Visitante'
 };
 
