@@ -30,7 +30,7 @@ mongoose.connect('mongodb://arthuroali:Ali140116@ds113522.mlab.com:13522/heroku_
 app.use('/api', router);
 
 if (process.env.NODE_ENV === 'production') {
-	app.use(express.static('client/build'));
+	app.use(express.static('backend/public'));
 }
 
 app.use(express.static(path.join(__dirname, 'public')));
