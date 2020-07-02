@@ -4,13 +4,16 @@ var express = require('express');
 var ArticleController = require('../controllers/article');
 var router = express.Router();
 var app = express();
+var path = require('path');
+var ArticleController = require('./controllers/article');
+var md_upload = multipart({uploadDir: './upload/articles'});
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
-
+app.use('/api', router );
 // Rutas de prueba
 
 router.get('/test-de-controlador', ArticleController.test);
