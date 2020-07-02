@@ -5,12 +5,12 @@ var ArticleController = require('../controllers/article');
 var router = express.Router();
 var app = express();
 var path = require('path');
-var md_upload = multipart({uploadDir: './upload/articles'});
+var md_upload = multipart({uploadDir: '../upload/articles'});
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'));
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 app.use('/api', router );
 // Rutas de prueba
