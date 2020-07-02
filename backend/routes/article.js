@@ -3,6 +3,7 @@ var express = require('express');
 
 var ArticleController = require('../controllers/article');
 var router = express.Router();
+var app = express();
 
 app.use(express.static(path.join(__dirname, 'public')));
 
