@@ -12,7 +12,8 @@ var router = require('./routes/article');
 var md_upload = multipart({uploadDir: './upload/articles'});
 var cors = require('cors');
 app.use(cors());
-
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 
 mongoose.set('useFindAndModify', false);
 mongoose.Promise = global.Promise;
@@ -27,17 +28,12 @@ mongoose.connect('mongodb://arthuroali:Ali140116@ds113522.mlab.com:13522/heroku_
                 console.log('Servidor corriendo en http://localhost:'+port);
         });
 });
-app.use('/api', router);
+app.use('/api');
 
 if (process.env.NODE_ENV === 'production') {
 	app.use(express.static('public'));
 }
 
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.get('*', (req, res)=>{
-    res.sendFile(path.join(__dirname, 'public/index.html'));
-});
 
 app.get('/', ArticleController.probar);
 app.post('/save', ArticleController.save);
@@ -49,5 +45,8 @@ app.post('/upload-image/:id?', md_upload , ArticleController.upload);
 app.get('/get-image/:image', ArticleController.getImage);
 app.get('/search/:search', ArticleController.search);
 
-app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
