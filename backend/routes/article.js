@@ -5,6 +5,8 @@ var ArticleController = require('../controllers/article');
 var router = express.Router();
 var app = express();
 var path = require('path');
+var multipart = require('connect-multiparty');
+
 var md_upload = multipart({uploadDir: '../upload/articles'});
 
 app.use(express.static(path.join(__dirname, '../public')));
