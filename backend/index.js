@@ -40,13 +40,5 @@ app.get('*', (req, res)=>{
     res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-app.get('/', ArticleController.probar);
-app.post('/save', ArticleController.save);
-app.get('/articles/:last?', ArticleController.getArticles);
-app.get('/article/:id', ArticleController.getArticle);
-app.put('/article/:id', ArticleController.update);
-app.delete('/article/:id', ArticleController.delete);
-app.post('/upload-image/:id?', md_upload , ArticleController.upload);
-app.get('/get-image/:image', ArticleController.getImage);
-app.get('/search/:search', ArticleController.search);
+
 
