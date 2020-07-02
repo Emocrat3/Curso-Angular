@@ -4,6 +4,11 @@ var express = require('express');
 var ArticleController = require('../controllers/article');
 var router = express.Router();
 
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('*', (req, res)=>{
+    res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 // Rutas de prueba
 
