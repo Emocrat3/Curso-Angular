@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ArticleService } from '../../services/article.service';
 import { Article } from 'src/app/models/article';
-
+import { Router, ActivatedRoute, Params, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -15,7 +15,9 @@ export class HomeComponent implements OnInit {
   public articles: Article[];
 
   constructor(
-    private _articleService: ArticleService
+    private _articleService: ArticleService,
+    private _route: ActivatedRoute,
+    private _router: Router
   ) { 
     this.title = 'Ultimos Articulos';
   }
