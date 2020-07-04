@@ -342,7 +342,7 @@ __webpack_require__.r(__webpack_exports__);
 
 class AppComponent {
     constructor() {
-        this.title = 'Curso de Angular de Arthuro Gomez';
+        this.title = 'Proyecto MEAN stack de Arthuro Gomez';
     }
 }
 AppComponent.ɵfac = function AppComponent_Factory(t) { return new (t || AppComponent)(); };
@@ -894,8 +894,6 @@ class ArticleNewComponent {
                 //this._router.navigate(['/blog']);
                 //Alerta
                 sweetalert__WEBPACK_IMPORTED_MODULE_3___default()('Articulo creado!!', 'El articulo se ha creado correctamente', 'success');
-                console.log(response.article);
-                console.log(this.article);
             }
             else {
                 this.status = 'error';
@@ -1718,7 +1716,6 @@ class HomeComponent {
         this._articleService.getArticles(true).subscribe(response => {
             if (response.articles) {
                 this.articles = response.articles;
-                console.log(this.articles);
             }
             else {
             }
@@ -1740,7 +1737,7 @@ HomeComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComp
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](6, "app-sidebar");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementEnd"]();
     } if (rf & 2) {
-        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", "Bienvenido al curso de Angular de Arthuro Gomez");
+        _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵproperty"]("name", "Bienvenido al proyecto de Arthuro Gomez");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](4);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵtextInterpolate1"]("", ctx.title, " ");
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵadvance"](1);
@@ -2045,8 +2042,6 @@ class PeliculasComponent {
         this.peliculas = this._peliculaService.getPeliculas();
     }
     ngOnInit() {
-        console.log(this.peliculas);
-        console.log(this);
     }
     mostrarFavorita(event) {
         this.favorita = event.pelicula;

@@ -20,8 +20,7 @@ public favorita: Pelicula;
   }
 
   ngOnInit() {
-    console.log(this.peliculas);
-    console.log(this)
+
   }
 
   mostrarFavorita(event){

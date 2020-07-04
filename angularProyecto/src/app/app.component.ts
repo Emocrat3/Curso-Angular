@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public title = 'Curso de Angular de Arthuro Gomez';
+  public title = 'Proyecto MEAN stack de Arthuro Gomez';
   
 }

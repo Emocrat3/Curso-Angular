@@ -70,8 +70,7 @@ export class ArticleNewComponent implements OnInit {
             'success'
           );
         
-          console.log(response.article);
-          console.log(this.article);
+
         } else {
           this.status = 'error';
         }
