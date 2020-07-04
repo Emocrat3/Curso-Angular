@@ -25,6 +25,7 @@ export class ArticleService {
             articles = 'articles/true';
         }
 
+        console.log(this.url);
         return this._http.get(this.url+articles);
     }
     

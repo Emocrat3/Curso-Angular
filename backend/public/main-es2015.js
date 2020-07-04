@@ -2317,27 +2317,28 @@ class ArticleService {
         if (last != null) {
             articles = 'articles/true';
         }
-        return this._http.get(articles);
+        console.log(this.url);
+        return this._http.get(this.url + articles);
     }
     getArticle(articleId) {
-        return this._http.get('article/' + articleId);
+        return this._http.get(this.url + 'article/' + articleId);
     }
     search(searchString) {
-        return this._http.get('search/' + searchString);
+        return this._http.get(this.url + 'search/' + searchString);
     }
     create(article) {
         let params = JSON.stringify(article);
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
-        return this._http.post('save', params, { headers: headers });
+        return this._http.post(this.url + 'save', params, { headers: headers });
     }
     update(id, article) {
         let params = JSON.stringify(article);
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
-        return this._http.put('article/' + id, params, { headers: headers });
+        return this._http.put(this.url + 'article/' + id, params, { headers: headers });
     }
     delete(id) {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
-        return this._http.delete('article/' + id, { headers: headers });
+        return this._http.delete(this.url + 'article/' + id, { headers: headers });
     }
 }
 ArticleService.ɵfac = function ArticleService_Factory(t) { return new (t || ArticleService)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵinject"](_angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpClient"])); };

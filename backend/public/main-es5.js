@@ -4460,24 +4460,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             articles = 'articles/true';
           }
 
-          return this._http.get(articles);
+          console.log(this.url);
+          return this._http.get(this.url + articles);
         }
       }, {
         key: "getArticle",
         value: function getArticle(articleId) {
-          return this._http.get('article/' + articleId);
+          return this._http.get(this.url + 'article/' + articleId);
         }
       }, {
         key: "search",
         value: function search(searchString) {
-          return this._http.get('search/' + searchString);
+          return this._http.get(this.url + 'search/' + searchString);
         }
       }, {
         key: "create",
         value: function create(article) {
           var params = JSON.stringify(article);
           var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
-          return this._http.post('save', params, {
+          return this._http.post(this.url + 'save', params, {
             headers: headers
           });
         }
@@ -4486,7 +4487,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         value: function update(id, article) {
           var params = JSON.stringify(article);
           var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
-          return this._http.put('article/' + id, params, {
+          return this._http.put(this.url + 'article/' + id, params, {
             headers: headers
           });
         }
@@ -4494,7 +4495,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         key: "delete",
         value: function _delete(id) {
           var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_1__["HttpHeaders"]().set('Content-Type', 'application/json');
-          return this._http["delete"]('article/' + id, {
+          return this._http["delete"](this.url + 'article/' + id, {
             headers: headers
           });
         }
